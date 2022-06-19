@@ -18,8 +18,11 @@ var pair10 = new Pairing("", ""); */
 
 var pairArr = [pair1, pair2, pair3, pair4, pair5, pair6, pair7, pair8];
 
-var stu = ["LXR", "TJY", "LK", "SZF", "JV", "JL", "JHA", "H"];
-var stu2 = ["LXR", "TJY", "LK", "SZF", "JV", "JL", "JHA", "H"];
+/* var stu = ["LXR", "TJY", "LK", "SZF", "JV", "JL", "JHA", "H"];
+var stu2 = ["LXR", "TJY", "LK", "SZF", "JV", "JL", "JHA", "H"]; */
+
+var stu = ["LOK", "CJH", "CED", "KX", "KN", "JT", "KSY", "JL"];
+var stu2 = ["LOK", "CJH", "CED", "KX", "KN", "JT", "KSY", "JL"];
 
 var assignment = "LXR";
 var judgeH1 = document.getElementById("judgeH1");
@@ -466,33 +469,6 @@ sock.on('clientupdatewincon', data => {
 
 });
 
-/* sock.on('updateonconnect', data => {
-    for (var i = 1; i <= 29; i++) {
-
-        var playerEle = document.getElementById(data.objects[i].player);
-        
-        if (playerEle.tagName === 'DIV') {
-            playerEle.innerHTML = data.objects[i].pcontent;
-        } else if (playerEle.tagName === 'SELECT') {
-            if (nickname != "TCR") {
-                var opt = document.createElement('option');
-                opt.value = data.objects[i].pcontent;
-                opt.innerHTML = data.objects[i].pcontent;
-                playerEle.appendChild(opt);
-                playerEle.value = data.objects[i].pcontent;
-
-            }
-        }
-
-        var timeEle = document.getElementById(data.objects[i].time);
-        timeEle.value = data.objects[i].tcontent;
-
-        var resultEle = document.getElementById(data.objects[i].result);
-        resultEle.value = data.objects[i].rcontent;
-
-        console.log("Update objects complete");
-    }
-}); */
 
 sock.on('chat-to-clients', data => {
     appendMessage(data);
