@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacking Competition - Standard</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+    <div class="main-div">
+        <h1 id="judgeH1">Judge: </h1>
+        <h1 id="stackerH1">Stacker: </h1>
+        <h1 id="routineH1">Routine: Cycle</h1>
+
+        <div>
+            <label for="warm1">1st Warm Up</label>
+            <input name="warm1" id="warm1" type="number">
+            <button id="saveWarm1">Save</button>
+        </div>
+
+
+        <div>
+            <label for="warm2">2nd Warm Up</label>
+            <input name="warm2" id="warm2" type="number">
+            <button id="saveWarm2">Save</button>
+        </div>
+
+
+        <div>
+            <label for="try1">1st Try</label>
+            <input name="try1" id="try1" type="number">
+            <button id="saveTry1">Save</button>
+        </div>
+
+
+        <div>
+            <label for="try2">2nd Try</label>
+            <input name="try2" id="try2" type="number">
+            <button id="saveTry2">Save</button>
+        </div>
+
+        <div>
+            <label for="try3">3rd Try</label>
+            <input name="try3" id="try3" type="number">
+            <button id="saveTry3">Save</button>
+        </div>
+
+        <!-- <div>
+        <h3><a href="results.html" target="_blank">Go to Results</a></h3>
+    </div> -->
+    </div>
+
+
+
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
