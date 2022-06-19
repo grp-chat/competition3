@@ -1,5 +1,6 @@
 const sock = io();
 
+
 function Pairing(judge, stacker) {
     this.judge = judge;
     this.stacker = stacker;
