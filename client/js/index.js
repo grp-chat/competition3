@@ -5,14 +5,14 @@ function Pairing(judge, stacker) {
     this.stacker = stacker;
 }
 
-var pair1 = new Pairing("LXR", "TJY");
-var pair2 = new Pairing("TJY", "LK");
-var pair3 = new Pairing("LK", "JV");
-var pair4 = new Pairing("JV", "SZF");
-var pair5 = new Pairing("JL", "JHA");
-var pair6 = new Pairing("JHA", "LXR");
-var pair7 = new Pairing("SZF", "H");
-var pair8 = new Pairing("H", "SZF");
+var pair1 = new Pairing("LOK", "CED");
+var pair2 = new Pairing("CED", "JT");
+var pair3 = new Pairing("JT", "CJH");
+var pair4 = new Pairing("CJH", "LOK");
+var pair5 = new Pairing("KN", "KX");
+var pair6 = new Pairing("KX", "KN");
+var pair7 = new Pairing("KSY", "JAY");
+var pair8 = new Pairing("JAY", "KSY");
 /* var pair9 = new Pairing("", "");
 var pair10 = new Pairing("", ""); */
 
@@ -24,7 +24,7 @@ var stu2 = ["LXR", "TJY", "LK", "SZF", "JV", "JL", "JHA", "H"]; */
 var stu = ["LOK", "CJH", "CED", "KX", "KN", "JT", "KSY", "JL"];
 var stu2 = ["LOK", "CJH", "CED", "KX", "KN", "JT", "KSY", "JL"];
 
-var assignment = "LXR";
+var assignment = "KSY";
 var judgeH1 = document.getElementById("judgeH1");
 var stackerH1 = document.getElementById("stackerH1");
 var routineH1 = document.getElementById("routineH1");
