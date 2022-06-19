@@ -34,6 +34,16 @@ table {
     
 }
 
+#table2 {
+    position: absolute;
+    border: 1px solid #bdc3c7;
+    background-color: white;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+    left: 30%;
+    width: 300px;
+    
+}
+
 th,td {
     padding: 12px;
     text-align: left;

@@ -2,6 +2,7 @@ const sock = io();
 
 var changesMade = false;
 const table = document.getElementById("table");
+const table2 = document.getElementById("table2");
 var allStackers = [];
 
 
@@ -53,6 +54,12 @@ for (var i = 1; i <= 10; i++) {
     //cell1.innerHTML = i;
 
 }
+
+var sRow = table2.insertRow(1);
+var sCell1 = sRow.insertCell(0);
+var sCell2 = sRow.insertCell(1);
+var sCell3 = sRow.insertCell(2);
+sCell1.innerHTML = 1;
 
 /* var row = table.insertRow(1);
 var cell1 = row.insertCell(0);
@@ -167,11 +174,19 @@ sock.on('postResult', data => {
 
     var j = 1;
     for (var i = 0; i < allStackers.length; i++) {
-        allCells[j].innerHTML = allStackers[i].id;
-        j++;
-        allCells[j].innerHTML = allStackers[i].best;
-        j++;
-        j++;
+        if (allStackers[i].id === "KSY") {
+            sCell2.innerHTML = allStackers[i].id;
+            sCell3.innerHTML = allStackers[i].best;
+        }
+
+        if (allStackers[i].id != "KSY") {
+            allCells[j].innerHTML = allStackers[i].id;
+            j++;
+            allCells[j].innerHTML = allStackers[i].best;
+            j++;
+            j++;
+        }
+
     }
 
 });
