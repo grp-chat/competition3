@@ -3,7 +3,23 @@ const sock = io();
 var changesMade = false;
 const table = document.getElementById("table");
 const table2 = document.getElementById("table2");
+const table3 = document.getElementById("table3");
+const table4 = document.getElementById("table4");
+const table5 = document.getElementById("table5");
+const table6 = document.getElementById("table6");
+const table7 = document.getElementById("table7");
+const table8 = document.getElementById("table8");
+const table9 = document.getElementById("table9");
+const table10 = document.getElementById("table10");
+const table11 = document.getElementById("table11");
+const table12 = document.getElementById("table12");
+
+var allTables = [table, table2, table3, table4, table5, table6, table7, table8, table9, table10, 
+    table11, table12];
 var allStackers = [];
+
+var activeTable1 = table;
+var activeTable2 = table2;
 
 
 var c1, c2, c3, c4, c5, c6, c7, c8, c9, c10,
@@ -40,26 +56,38 @@ var pos10 = new Position("--", 0);
 allPos = [pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9, pos10]
 
 
-var j = 0;
+
 for (var i = 1; i <= 10; i++) {
-    allRows[i] = table.insertRow(i);
+
+    allTables.forEach((table) => {
+        var j = 0;
+        table.insertRow(i).insertCell(j);
+        table.rows[i].cells[j].innerHTML = i;
+        j++;
+        table.rows[i].insertCell(j);
+        j++;
+        table.rows[i].insertCell(j);
+    });
+
+
+    /* allRows[i] = table.insertRow(i);
     allCells[j] = allRows[i].insertCell(0);
     allCells[j].innerHTML = i;
     j++;
     allCells[j] = allRows[i].insertCell(1);
     j++;
     allCells[j] = allRows[i].insertCell(2);
-    j++;
+    j++; */
 
     //cell1.innerHTML = i;
 
 }
 
-var sRow = table2.insertRow(1);
+/* var sRow = table2.insertRow(1);
 var sCell1 = sRow.insertCell(0);
 var sCell2 = sRow.insertCell(1);
 var sCell3 = sRow.insertCell(2);
-sCell1.innerHTML = 1;
+sCell1.innerHTML = 1; */
 
 /* var row = table.insertRow(1);
 var cell1 = row.insertCell(0);
@@ -172,19 +200,23 @@ sock.on('postResult', data => {
 
     allStackers = data;
 
-    var j = 1;
+    
     for (var i = 0; i < allStackers.length; i++) {
+        
         if (allStackers[i].id === "KSY") {
-            sCell2.innerHTML = allStackers[i].id;
-            sCell3.innerHTML = allStackers[i].best;
+            var j = 1;
+            activeTable2.rows[1].cells[j].innerHTML = allStackers[i].id;
+            activeTable1.rows[i + 1].cells[j].innerHTML = "--";
+            j++;
+            activeTable2.rows[1].cells[j].innerHTML = allStackers[i].best;
+            activeTable1.rows[i + 1].cells[j].innerHTML = 0;
         }
 
         if (allStackers[i].id != "KSY") {
-            allCells[j].innerHTML = allStackers[i].id;
+            var j = 1;
+            activeTable1.rows[i + 1].cells[j].innerHTML = allStackers[i].id;
             j++;
-            allCells[j].innerHTML = allStackers[i].best;
-            j++;
-            j++;
+            activeTable1.rows[i + 1].cells[j].innerHTML = allStackers[i].best;
         }
 
     }
