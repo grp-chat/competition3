@@ -386,6 +386,11 @@ io.on('connection', (sock) => {
         stacker11.best = 0;
     });
 
+    sock.on('checkStu', (data) => {
+        var checkStu = data;
+        io.emit('checkStuClients', checkStu);
+    });
+
 
 
 });

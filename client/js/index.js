@@ -432,6 +432,12 @@ function appendMessage(message) {
             }
         });
 
+        if (message === "TCR: check " + student && nickname === "TCR") {
+            let text = "[" + connectedArr.toString() + "]";
+            sock.emit('chat-to-server', text);
+            sock.emit('checkStu', student);
+        }
+
     });
 
 
@@ -533,6 +539,13 @@ sock.on('chgEventClients', data => {
 
 sock.on('chgH1Clients', data => {
     routineH1.innerHTML = "Event: " + data;
+});
+
+sock.on('checkStuClients', data => {
+    if (nickname === data) {
+        let text = nickname + " will be judging " + assignment;
+        sock.emit('chat-to-server', text);
+    }
 });
 
 
