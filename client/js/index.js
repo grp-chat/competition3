@@ -25,6 +25,8 @@ var stu2 = ["LXR", "TJY", "LK", "SZF", "JV", "JL", "JHA", "H"]; */
 var stu = ["LOK", "CJH", "CED", "KX", "KN", "JT", "KSY", "JL"];
 var stu2 = ["LOK", "CJH", "CED", "KX", "KN", "JT", "KSY", "JL"];
 
+var allEvents = ["333Prelim", "333Final", "363Prelim", "363Final", "CyclePrelim", "CycleFinal"];
+
 var assignment = "KSY";
 var judgeH1 = document.getElementById("judgeH1");
 var stackerH1 = document.getElementById("stackerH1");
@@ -402,6 +404,15 @@ function appendMessage(message) {
         sock.emit('chat-to-server', text);
     }
 
+    allEvents.forEach((evt) => {
+        if (message === "TCR: Set event to " + evt && nickname === "TCR") {
+            let text = "Event changed to " + evt;
+            sock.emit('chat-to-server', text);
+            sock.emit("changeEvent", evt);
+        }
+        
+    });
+
     stu.forEach((student) => {
         if (message === "TCR: assign " + student + " to me" && nickname === "TCR") {
             let text = student + " assigned to TCR successfully";
@@ -427,7 +438,7 @@ function appendMessage(message) {
 }
 
 function validOrNot(result) {
-    if (result < 6.9 || result > 999.999) {
+    if (result < 1.5 || result > 999.999) {
         alert("Invalid result");
         result = 0;
     }
@@ -514,6 +525,14 @@ sock.on('findJudge', data => {
         let text = assignment + " assigned to " + nickname + " successfully";
         sock.emit('chat-to-server', text);
     }
+});
+
+sock.on('chgEventClients', data => {
+    routineH1.innerHTML = "Event: " + data;
+});
+
+sock.on('chgH1Clients', data => {
+    routineH1.innerHTML = "Event: " + data;
 });
 
 

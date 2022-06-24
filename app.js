@@ -102,15 +102,18 @@ var stacker4 = new Stacker("KX", "333", 0, 0, 0, 0, 0, 0);
 var stacker5 = new Stacker("KN", "333", 0, 0, 0, 0, 0, 0);
 var stacker6 = new Stacker("JT", "333", 0, 0, 0, 0, 0, 0);
 var stacker7 = new Stacker("JL", "333", 0, 0, 0, 0, 0, 0);
-var stacker8 = new Stacker("KSY", "333", 0, 0, 0, 0, 0, 0);
+var stacker8 = new Stacker("--", "333", 0, 0, 0, 0, 0, 0);
 var stacker9 = new Stacker("--", "333", 0, 0, 0, 0, 0, 0);
 var stacker10 = new Stacker("--", "333", 0, 0, 0, 0, 0, 0);
 
+var stacker11 = new Stacker("KSY", "333", 0, 0, 0, 0, 0, 0);
 
 var allStackers = [stacker1, stacker2, stacker3, stacker4, stacker5, 
     stacker6, stacker7, stacker8, stacker9, stacker10];
 
 var dProperty = ["warm1", "warm2", "try1", "try2", "try3"];
+
+var theEvent = "333Prelim";
 
 /* allStackers.forEach((stacker) => {
     console.log(stacker.id)
@@ -163,187 +166,7 @@ io.on('connection', (sock) => {
 
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~LISTEN FROM CLIENT - ADD & MINUS WINS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    /* sock.on('addWin', (data) => {
-        if (data === "AA") {
-            aumWins++;
-        }
-        if (data === "NN") {
-            ninaWins++;
-        }
-        if (data === "LK") {
-            LKWins++;
-        }
-        if (data === "LXR") {
-            LXRWins++;
-        }
-        if (data === "JHA") {
-            JHAWins++;
-        }
-        if (data === "SZF") {
-            SZFWins++;
-        }
-        if (data === "JL") {
-            JLWins++;
-        }
-        if (data === "TJY") {
-            TJYWins++;
-        }
-    }); */
-
-    /* sock.on('give', (data) => {
-
-        if (data.userId === "LK") {
-            LKWins--;
-            if (data.giveToId === "JHA") {
-                JHAWins++
-            }
-            if (data.giveToId === "SZF") {
-                SZFWins++
-            }
-        }
-        if (data.userId === "LXR") {
-            LXRWins--;
-            if (data.giveToId === "TJY") {
-                TJYWins++
-            }
-            if (data.giveToId === "JL") {
-                JLWins++
-            }
-        }
-        if (data.userId === "JHA") {
-            JHAWins--;
-            if (data.giveToId === "LK") {
-                LKWins++
-            }
-            if (data.giveToId === "SZF") {
-                SZFWins++
-            }
-        }
-        if (data.userId === "SZF") {
-            SZFWins--;
-            if (data.giveToId === "LK") {
-                LKWins++
-            }
-            if (data.giveToId === "JHA") {
-                JHAWins++
-            }
-        }
-        if (data.userId === "JL") {
-            JLWins--;
-            if (data.giveToId === "TJY") {
-                TJYWins++
-            }
-            if (data.giveToId === "LXR") {
-                LXRWins++
-            }
-        }
-        if (data.userId === "TJY") {
-            TJYWins--;
-            if (data.giveToId === "LXR") {
-                LXRWins++
-            }
-            if (data.giveToId === "JL") {
-                JLWins++
-            }
-        }
-        var giverId = data.userId
-        var receiverId = data.giveToId
-        io.emit("lifegained", { giverId, receiverId });
-    }); */
-
-    /* sock.on('requestlife', (data) => {
-        var requesterId = data.nickname;
-        var requestToId = data.requestToId;
-        io.emit('sendrequest', { requesterId, requestToId });
-
-    }); */
-
-
-    /* sock.on('minusWin', (data) => {
-        if (data === "AA") {
-            aumWins--;
-            //console.log("did this run? " + data + " " + aumWins);
-        }
-        if (data === "NN") {
-            ninaWins--;
-        }
-        if (data === "LK") {
-            LKWins--;
-        }
-        if (data === "LXR") {
-            LXRWins--;
-        }
-        if (data === "JHA") {
-            JHAWins--;
-        }
-        if (data === "SZF") {
-            SZFWins--;
-        }
-        if (data === "JL") {
-            JLWins--;
-        }
-        if (data === "TJY") {
-            TJYWins--;
-        }
-
-    }); */
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~LISTEN FROM CLIENT - ADD & MINUS WINS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~LISTEN FROM CLIENT - ADD & MINUS CHALLENGES ~~~~~~~~~~~~~~~~~~~~~~~~~~
-    /* sock.on('addCha', (data) => {
-        if (data === "AA") {
-            aumChas++;
-        }
-        if (data === "NN") {
-            ninaChas++;
-        }
-        if (data === "LK") {
-            LKChas++;
-        }
-        if (data === "LXR") {
-            LXRChas++;
-        }
-        if (data === "JHA") {
-            JHAChas++;
-        }
-        if (data === "SZF") {
-            SZFChas++;
-        }
-        if (data === "JL") {
-            JLChas++;
-        }
-        if (data === "TJY") {
-            TJYChas++;
-        }
-    }); */
-
-    /* sock.on('minusCha', (data) => {
-        if (data === "AA") {
-            aumChas--;
-        }
-        if (data === "NN") {
-            ninaChas--;
-        }
-        if (data === "LK") {
-            LKChas--;
-        }
-        if (data === "LXR") {
-            LXRChas--;
-        }
-        if (data === "JHA") {
-            JHAChas--;
-        }
-        if (data === "SZF") {
-            SZFChas--;
-        }
-        if (data === "JL") {
-            JLChas--;
-        }
-        if (data === "TJY") {
-            TJYChas--;
-        }
-    }); */
+    
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~LISTEN FROM CLIENT - ADD & MINUS CHALLENGES ~~~~~~~~~~~~~~~~~~~~~~~~~~
     sock.on('submit', (data) => {
 
@@ -496,6 +319,38 @@ io.on('connection', (sock) => {
             }
         });
 
+        if (stacker11.id === data.stacker) {
+            dProperty.forEach((property) => {
+                if (data.whichTry === property) {
+                    stacker11[property] = parseFloat(data.result);
+                    /* console.log(stacker.try1);
+                    console.log(property); */
+                }
+                if (stacker11.best === 0 && property != "warm1" && property != "warm2") {
+                    stacker11.best = stacker11[property];
+                } else {
+                    if (stacker11.best > stacker11[property] && stacker11[property] != 0 && property != "warm1" && property != "warm2") {
+                        stacker11.best = stacker11[property];
+                    } else {};
+                }
+
+            });
+
+            if (stacker11.try1 != 0 && stacker11.try2 != 0 && stacker11.try3 != 0) {
+                let arr = [];
+                arr.push(stacker11.try1);
+                arr.push(stacker11.try2);
+                arr.push(stacker11.try3);
+
+                arr.sort(function(a,b) {
+                    return a - b;
+                });
+
+                stacker11.best = arr[0];
+                
+            }
+        }
+
         
         allStackers.sort(function(a,b) {
 
@@ -510,6 +365,25 @@ io.on('connection', (sock) => {
         var stacker = data.student2;
         var judge = data.student;
         io.emit('findJudge', { judge, stacker});
+    });
+
+    sock.on('changeEvent', (data) => {
+        theEvent = data;
+        io.emit('chgEventClients', theEvent);
+    });
+
+    sock.on('resetResults', () => {
+        allStackers.forEach((stacker) => {
+            stacker.try1 = 0;
+            stacker.try2 = 0;
+            stacker.try3 = 0;
+            stacker.best = 0;
+        })
+
+        stacker11.try1 = 0;
+        stacker11.try2 = 0;
+        stacker11.try3 = 0;
+        stacker11.best = 0;
     });
 
 
@@ -546,7 +420,8 @@ setInterval(function () {
     /* io.emit('updateAA', aumWins);
     io.emit('updateNN', ninaWins); */
 
-    io.emit('postResult', allStackers);
+    io.emit('postResult', { allStackers, stacker11 });
+    io.emit('chgH1Clients', theEvent);
 
 }, 1000);
 

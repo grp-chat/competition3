@@ -14,8 +14,11 @@ const table10 = document.getElementById("table10");
 const table11 = document.getElementById("table11");
 const table12 = document.getElementById("table12");
 
-var allTables = [table, table2, table3, table4, table5, table6, table7, table8, table9, table10, 
-    table11, table12];
+var allTables = [table, table3, table5, table7, table9, table11];
+
+var allTables2 = [table2, table4, table6, table8, table10, table12];
+
+var allEvents = ["333Prelim", "333Final", "363Prelim", "363Final", "CyclePrelim", "CycleFinal"];
 var allStackers = [];
 
 var activeTable1 = table;
@@ -60,6 +63,16 @@ allPos = [pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9, pos10]
 for (var i = 1; i <= 10; i++) {
 
     allTables.forEach((table) => {
+        var j = 0;
+        table.insertRow(i).insertCell(j);
+        table.rows[i].cells[j].innerHTML = i;
+        j++;
+        table.rows[i].insertCell(j);
+        j++;
+        table.rows[i].insertCell(j);
+    });
+
+    allTables2.forEach((table) => {
         var j = 0;
         table.insertRow(i).insertCell(j);
         table.rows[i].cells[j].innerHTML = i;
@@ -198,33 +211,52 @@ sock.on('postResult', data => {
     //test.innerHTML = data;
     //cell1.innerHTML = data[0].try1;
 
-    allStackers = data;
+    allStackers = data.allStackers;
 
     
     for (var i = 0; i < allStackers.length; i++) {
         
-        if (allStackers[i].id === "KSY") {
+        /* if (allStackers[i].id === "KSY") {
             var j = 1;
             activeTable2.rows[1].cells[j].innerHTML = allStackers[i].id;
             activeTable1.rows[i + 1].cells[j].innerHTML = "--";
             j++;
             activeTable2.rows[1].cells[j].innerHTML = allStackers[i].best;
             activeTable1.rows[i + 1].cells[j].innerHTML = 0;
-        }
+        } */
 
-        if (allStackers[i].id != "KSY") {
+        /* if (allStackers[i].id != "KSY") {
             var j = 1;
             activeTable1.rows[i + 1].cells[j].innerHTML = allStackers[i].id;
             j++;
             activeTable1.rows[i + 1].cells[j].innerHTML = allStackers[i].best;
-        }
+        } */
 
+        var j = 1;
+        activeTable1.rows[i + 1].cells[j].innerHTML = allStackers[i].id;
+        j++;
+        activeTable1.rows[i + 1].cells[j].innerHTML = allStackers[i].best;
     }
+
+    activeTable2.rows[1].cells[1].innerHTML = data.stacker11.id;
+    activeTable2.rows[1].cells[2].innerHTML = data.stacker11.best;
 
 });
 
 sock.on('chat-to-clients', data => {
     appendMessage(data);
+});
+
+sock.on('chgEventClients', data => {
+    allEvents.forEach((evt, index) => {
+        if (data === evt) {
+            activeTable1 = allTables[index];
+            activeTable2 = allTables2[index];
+        }
+    });
+
+    setTimeout('',5000);
+    sock.emit('resetResults');
 });
 
 
