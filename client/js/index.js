@@ -22,8 +22,8 @@ var pairArr = [pair1, pair2, pair3, pair4, pair5, pair6, pair7, pair8];
 /* var stu = ["LXR", "TJY", "LK", "SZF", "JV", "JL", "JHA", "H"];
 var stu2 = ["LXR", "TJY", "LK", "SZF", "JV", "JL", "JHA", "H"]; */
 
-var stu = ["LOK", "CJH", "CED", "KX", "KN", "JT", "KSY", "JL"];
-var stu2 = ["LOK", "CJH", "CED", "KX", "KN", "JT", "KSY", "JL"];
+var stu = ["LOK", "CJH", "CED", "KX", "KN", "JT", "KSY", "TJY"];
+var stu2 = ["LOK", "CJH", "CED", "KX", "KN", "JT", "KSY", "TJY"];
 
 var allEvents = ["333Prelim", "333Final", "363Prelim", "363Final", "CyclePrelim", "CycleFinal"];
 
