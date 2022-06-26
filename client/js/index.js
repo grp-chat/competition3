@@ -9,10 +9,10 @@ function Pairing(judge, stacker) {
 var pair1 = new Pairing("LOK", "CED");
 var pair2 = new Pairing("CED", "JT");
 var pair3 = new Pairing("JT", "CJH");
-var pair4 = new Pairing("CJH", "LOK");
+var pair4 = new Pairing("CJH", "KN");
 var pair5 = new Pairing("KN", "KX");
-var pair6 = new Pairing("KX", "KN");
-var pair7 = new Pairing("KSY", "JAY");
+var pair6 = new Pairing("KX", "TJY");
+var pair7 = new Pairing("TJY", "LOK");
 var pair8 = new Pairing("JAY", "KSY");
 /* var pair9 = new Pairing("", "");
 var pair10 = new Pairing("", ""); */
